@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marin Zipper | County of Marin</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23000'/%3E%3Cg fill='none' stroke='%23e5b53b' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='12' height='12' rx='2'/%3E%3Crect x='27' y='9' width='12' height='12' rx='2'/%3E%3Crect x='9' y='27' width='12' height='12' rx='2'/%3E%3Crect x='27' y='27' width='12' height='12' rx='2'/%3E%3C/g%3E%3C/svg%3E">
+    <meta name="description" content="Create password-protected AES-encrypted ZIP files in the browser.">
+    <link rel="stylesheet" href="https://marincountygov.github.io/marin-os/vendor/pico.min.css">
+    <link rel="stylesheet" href="https://marincountygov.github.io/marin-os/shared/app-brand.css">
+    <link rel="stylesheet" href="assets/app.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <div class="zip-drop-overlay" aria-hidden="true">
+      <div class="zip-drop-overlay__panel">
+        <span class="zip-drop-overlay__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 6v24"/><path d="m14 18 10-12 10 12"/><path d="M8 29v10a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V29"/></svg>
+        </span>
+        <h2>Drop files to add them</h2>
+        <p class="app-help-text">Files are processed locally in this browser. They are not uploaded by this page.</p>
+      </div>
+    </div>
+
+    <div class="marinos-banner">
+      <div class="marinos-banner__inner">
+        <div class="menu marinos-menu">
+          <button type="button" class="menu-toggle marinos-menu__toggle" aria-expanded="false" aria-controls="marinos-menu-panel">
+            <span class="marinos-banner__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="7" y="7" width="13" height="13" rx="2"/><rect x="28" y="7" width="13" height="13" rx="2"/><rect x="7" y="28" width="13" height="13" rx="2"/><rect x="28" y="28" width="13" height="13" rx="2"/></svg></span>
+            MarinOS<sup>ALPHA</sup>
+            <svg class="menu-toggle__caret" aria-hidden="true" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div id="marinos-menu-panel" class="menu-panel marinos-menu__panel" hidden>
+            <a href="https://marincountygov.github.io/marin-magic/"><span class="marinos-menu__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m24 5 2.8 9.2L36 17l-9.2 2.8L24 29l-2.8-9.2L12 17l9.2-2.8zM37 28l1.6 5.4L44 35l-5.4 1.6L37 42l-1.6-5.4L30 35l5.4-1.6zM11 28l1.2 3.8L16 33l-3.8 1.2L11 38l-1.2-3.8L6 33l3.8-1.2z"/></svg></span>MarinMagic</a>
+            <a href="https://marincountygov.github.io/marin-waymaker/"><span class="marinos-menu__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="11" cy="12" r="4"/><circle cx="37" cy="12" r="4"/><circle cx="24" cy="37" r="4"/><path d="M15 12h18M35 16 26 33M13 16l9 17"/></svg></span>Marin WayMaker</a>
+            <a href="https://marincountygov.github.io/marin-docs/"><span class="marinos-menu__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M13 6h17l8 8v28H13z"/><path d="M30 6v9h8M19 24h13M19 31h13"/></svg></span>MarinDocs</a>
+            <a class="marinos-menu__all" href="https://marincountygov.github.io/marin-os/">Browse all in MarinOS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="app-header">
+      <div class="app-header__inner">
+        <div class="app-identity">
+          <div class="app-title-row">
+            <span class="app-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-width="1"><path d="M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M8 12v-1"/><path d="M8 18v-2"/><path d="M8 7V6"/><circle cx="8" cy="20" r="2"/></svg>
+            </span>
+            <div class="app-title-copy">
+              <h1 class="app-title">Marin Zipper</h1>
+              <p class="app-subtitle">Compress and encrypt files locally in your browser.</p>
+            </div>
+          </div>
+        </div>
+        <div class="app-header__actions">
+          <button type="button" class="app-menu-toggle secondary" id="menu-toggle" aria-expanded="false" aria-controls="app-nav">Menu</button>
+          <nav class="app-nav" id="app-nav" aria-label="Application navigation">
+            <a href="#start" aria-current="page">Start</a>
+            <a href="#about">About</a>
+            <a href="#updates">Updates</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="container app-main" tabindex="-1">
+      <div id="app-status-message" class="app-alert app-alert--info" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <section id="start" data-tab-section="start" aria-labelledby="start-heading">
+        <div class="zip-grid">
+          <div class="app-card">
+            <div id="dropzone" class="zip-dropzone" data-active="false">
+              <div>
+                <h2 id="start-heading">Drop files anywhere on this page</h2>
+                <p class="app-help-text">You can also choose files using the button below. Files remain only on your device.<br>Do not include sensitive information in file names.</p>
+                <div class="zip-drop-actions">
+                  <button type="button" id="choose-files-button">Choose files</button>
+                  <button type="button" id="choose-folder-button" class="secondary">Choose folder</button>
+                  <button type="button" id="clear-files-button" class="secondary" disabled>Clear files</button>
+                </div>
+                <input id="file-input" class="visually-hidden" type="file" multiple>
+                <input id="folder-input" class="visually-hidden" type="file" multiple webkitdirectory>
+                <div class="zip-summary" aria-live="polite">
+                  <span class="app-badge" id="selected-count">0 files</span>
+                  <span class="app-badge" id="selected-size">0 bytes</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="large-file-warning" class="app-alert app-alert--warning zip-warning" hidden>
+              Large browser-generated ZIPs can be limited by available memory and browser download behavior. For multi-gigabyte packages, test with the target browser before relying on this workflow.
+            </div>
+
+            <div id="empty-files" class="app-empty zip-empty">No files selected.</div>
+            <div id="file-list" class="zip-file-list" aria-label="Selected files"></div>
+          </div>
+
+          <form id="zip-form" class="app-card" novalidate>
+            <h2>Settings</h2>
+
+            <div id="filename-fields" class="zip-filename-fields" hidden>
+              <h3>File name fields</h3>
+              <div class="app-form-grid">
+                <div class="app-field" data-filename-param="currentdate" hidden>
+                  <label for="filename-currentdate">Current date</label>
+                  <input id="filename-currentdate" name="filename-currentdate" type="text" inputmode="numeric" autocomplete="off" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="app-field" data-filename-param="county" hidden>
+                  <label for="filename-county">County</label>
+                  <input id="filename-county" name="filename-county" type="text" autocomplete="off">
+                </div>
+                <div class="app-field" data-filename-param="lastname" hidden>
+                  <label for="filename-lastname">Last Name</label>
+                  <input id="filename-lastname" name="filename-lastname" type="text" autocomplete="off">
+                </div>
+                <div class="app-field" data-filename-param="dob" hidden>
+                  <label for="filename-dob">Date of birth</label>
+                  <input id="filename-dob" name="filename-dob" type="text" inputmode="numeric" autocomplete="off" placeholder="yyyy-mm-dd">
+                </div>
+              </div>
+            </div>
+
+            <div class="app-field">
+              <label for="zip-name">ZIP file name</label>
+              <input id="zip-name" name="zip-name" type="text" value="marin-encrypted-files.zip" autocomplete="off" required>
+              <small id="zip-name-help" class="app-help-text">The .zip extension is added automatically if omitted.</small>
+            </div>
+
+            <div class="app-field">
+              <label for="zip-password">Password <span class="app-required">required</span></label>
+              <input id="zip-password" name="zip-password" type="password" minlength="12" autocomplete="new-password" required>
+            </div>
+
+            <div class="app-field">
+              <label for="zip-password-confirm">Confirm password <span class="app-required">required</span></label>
+              <input id="zip-password-confirm" name="zip-password-confirm" type="password" minlength="12" autocomplete="new-password" required>
+              <small id="password-help" class="app-help-text">Must be at least 12 characters. Passwords are not stored by this page.</small>
+            </div>
+
+            <div class="zip-password-actions app-field">
+              <button type="button" id="generate-password-button" class="secondary">Generate password</button>
+              <button type="button" id="toggle-password-button" class="secondary" aria-pressed="false">Show passwords</button>
+            </div>
+
+            <div class="app-form-grid zip-advanced-options" hidden aria-hidden="true">
+              <div class="app-field">
+                <label for="encryption-strength">Encryption</label>
+                <select id="encryption-strength" name="encryption-strength">
+                  <option value="3" selected>AES-256</option>
+                  <option value="2">AES-192</option>
+                  <option value="1">AES-128</option>
+                </select>
+              </div>
+
+              <div class="app-field">
+                <label for="compression-level">Compression level</label>
+                <select id="compression-level" name="compression-level">
+                  <option value="0">Store only</option>
+                  <option value="3">Faster</option>
+                  <option value="6" selected>Balanced</option>
+                  <option value="9">Smaller</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="zip-actions">
+              <button type="submit" id="create-zip-button" disabled>Create encrypted ZIP</button>
+              <button type="button" id="cancel-button" class="secondary" hidden>Cancel</button>
+            </div>
+
+            <div id="progress-wrap" class="zip-progress-wrap" hidden>
+              <progress id="zip-progress" value="0" max="100"></progress>
+              <div id="progress-text" class="zip-progress-text">Preparing...</div>
+            </div>
+
+            <a id="download-link" class="zip-download" role="button" href="#" download hidden>Download encrypted ZIP</a>
+          </form>
+        </div>
+      </section>
+
+      <section id="about" class="app-card" data-tab-section="about" hidden>
+        <h2>About</h2>
+        <p>Marin Zipper is a browser-only prototype for creating password-protected ZIP files with ZIP AES encryption. It does not send the selected files to a server.</p>
+        <h3>File name links</h3>
+        <p>Some links to Marin Zipper can fill in parts of the ZIP file name for you. This is useful when another system sends you here with file name details already included in the link.</p>
+        <p>A file name link can use these fields:</p>
+        <ul class="zip-help-list">
+          <li><code>currentdate</code> adds today's date automatically. No value is needed.</li>
+          <li><code>county</code> fills in the County field.</li>
+          <li><code>lastname</code> fills in the Last Name field.</li>
+          <li><code>dob</code> fills in the Date of Birth field.</li>
+        </ul>
+        <p>Example:</p>
+        <p><code>index.html?currentdate&amp;county=Marin&amp;lastname=Garcia&amp;dob=1980-01-01</code></p>
+        <p>If today's date were 2026-08-28, that example would create a ZIP file name like <code>2026-08-28_Marin_Garcia_1980-01-01.zip</code>. You can still edit the fields before creating the ZIP.</p>
+        <p>Do not include sensitive information in file names unless your department has approved that naming format.</p>
+        <h3>Encrypted ZIP compatibility</h3>
+        <p>Marin Zipper creates AES-encrypted ZIP files. Windows File Explorer cannot reliably extract encrypted archives. Use 7-Zip, WinRAR, WinZip, PeaZip, or another AES ZIP-compatible extractor to open files created with this app.</p>
+      </section>
+
+      <section id="updates" class="app-card" data-tab-section="updates" data-updates-repo="marin-os" data-app-name="Marin Zipper" hidden>
+        <h2>Updates</h2>
+        <p class="app-help-text">Change <code>data-updates-repo</code> to this app's repository slug after adding it to MarinOS.</p>
+        <p data-updates-status class="app-help-text" role="status" aria-live="polite" aria-atomic="true">Loading recent commits&hellip;</p>
+        <div data-updates-list></div>
+      </section>
+    </main>
+
+    <footer class="app-footer" role="contentinfo"><div class="app-footer__inner"><a href="https://marincountygov.github.io/marin-os/">MarinOS</a></div></footer>
+    <a class="app-feedback" href="https://form.asana.com/?k=qVUT83d5DBmlDiIyi-WAyQ&amp;d=23133298259496" target="_blank" rel="noreferrer">Feedback</a>
+
+    <noscript>
+      <div class="container app-alert app-alert--danger">JavaScript is required to create an encrypted ZIP file in the browser.</div>
+    </noscript>
+
+    <script src="assets/vendor/zip.js/zip-native.min.js"></script>
+    <script src="https://marincountygov.github.io/marin-os/shared/app-shell.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+:root {
+        --zip-drop-border: color-mix(in srgb, var(--app-accent) 60%, var(--app-border));
+        --zip-drop-bg: color-mix(in srgb, var(--app-accent) 8%, var(--app-surface));
+      }
+
+      body.is-dragging {
+        overflow: hidden;
+      }
+
+      .zip-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(min(100%, 22rem), 0.85fr);
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .zip-dropzone {
+        display: grid;
+        place-items: center;
+        min-height: 18rem;
+        padding: 2rem;
+        border: 2px dashed var(--zip-drop-border);
+        border-radius: calc(var(--pico-border-radius) * 1.5);
+        background: var(--zip-drop-bg);
+        text-align: center;
+      }
+
+      .zip-dropzone[data-active="true"],
+      body.is-dragging .zip-dropzone {
+        border-style: solid;
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--app-accent) 18%, transparent);
+      }
+
+      .zip-dropzone h2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .zip-dropzone p {
+        max-width: 38rem;
+        margin-inline: auto;
+      }
+
+      .zip-drop-actions,
+      .zip-actions,
+      .zip-password-actions,
+      .zip-summary {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .zip-summary {
+        margin: 1rem 0 0;
+      }
+
+      .zip-summary .app-badge {
+        margin: 0;
+      }
+
+      .zip-file-list {
+        display: grid;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .zip-file-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 0.75rem;
+        border: 1px solid var(--app-border);
+        border-radius: var(--pico-border-radius);
+        background: var(--app-surface);
+      }
+
+      .zip-file-name {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        font-weight: 700;
+      }
+
+      .zip-file-meta {
+        color: var(--app-muted);
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .zip-remove-file {
+        min-height: 36px;
+        padding: 0.25rem 0.55rem;
+      }
+
+      .zip-progress-wrap {
+        margin-top: 1rem;
+      }
+
+      .zip-progress-wrap[hidden],
+      .zip-download[hidden],
+      .zip-empty[hidden] {
+        display: none;
+      }
+
+      .zip-progress-text {
+        margin-top: 0.35rem;
+        color: var(--app-muted);
+        font-size: 0.9375rem;
+      }
+
+      .zip-download {
+        margin-top: 1rem;
+      }
+
+
+
+      .zip-filename-fields {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--app-border);
+        border-radius: var(--pico-border-radius);
+        background: color-mix(in srgb, var(--app-surface) 92%, var(--app-accent));
+      }
+
+      .zip-filename-fields[hidden],
+      .zip-filename-fields [hidden] {
+        display: none;
+      }
+
+      .zip-filename-fields h3 {
+        margin-top: 0;
+      }
+
+      .zip-filename-fields .app-form-grid {
+        margin-top: 0.75rem;
+      }
+
+      .zip-help-list {
+        margin-bottom: 0;
+      }
+
+      .zip-drop-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        place-items: center;
+        padding: 2rem;
+        background: color-mix(in srgb, var(--app-bg) 80%, transparent);
+        backdrop-filter: blur(3px);
+      }
+
+      body.is-dragging .zip-drop-overlay {
+        display: grid;
+      }
+
+      .zip-drop-overlay__panel {
+        max-width: 36rem;
+        padding: 2rem;
+        border: 3px dashed var(--app-accent);
+        border-radius: calc(var(--pico-border-radius) * 2);
+        background: var(--app-surface);
+        box-shadow: 0 20px 60px rgba(16, 24, 40, 0.24);
+        text-align: center;
+      }
+
+      .zip-drop-overlay__icon {
+        display: inline-flex;
+        width: 4rem;
+        height: 4rem;
+        color: var(--app-accent);
+      }
+
+      .zip-drop-overlay__icon svg {
+        width: 100%;
+        height: 100%;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .zip-warning {
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 900px) {
+        .zip-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .zip-file-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .zip-file-meta {
+          white-space: normal;
+        }
+      }
+
+
+      #app-status-message:empty {
+        display: none;
+      }
