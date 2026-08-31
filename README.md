@@ -1,6 +1,6 @@
 # Marin Zipper
 
-Browser-only MarinOS-style prototype for creating password-protected AES-encrypted ZIP files with the official vendored zip.js native browser build.
+Browser-only MarinOS app for creating password-protected AES-encrypted ZIP files with the official vendored zip.js native browser build.
 
 ## Files
 
@@ -8,12 +8,30 @@ Browser-only MarinOS-style prototype for creating password-protected AES-encrypt
 - `assets/app.css` - App-specific styles.
 - `assets/app.js` - File selection, full-page drag-and-drop, query-driven ZIP filename fields, password handling, ZIP creation, progress, cancellation, automatic download, and fallback download logic.
 - `assets/vendor/zip.js/zip-native.min.js` - Official vendored zip.js native browser build.
+- `vendor/pico.min.css` - Local Pico CSS copy supplied through MarinOS UI assets.
+- `shared/app-brand.css` - Local MarinOS brand CSS. It uses Jost for headings/display text and Open Sans for body/user-interface text.
+- `shared/app-shell.js` - Local MarinOS app shell behavior. This app-specific copy does not fetch the MarinOS catalog or GitHub updates automatically.
+- `vendor/fonts/open-sans/OFL.txt` - Open Sans license file.
+
+## Local-first runtime assets
+
+Marin Zipper serves required runtime CSS, JavaScript, and font references from local first-party paths. Do not add Google Fonts, Adobe Fonts, jsDelivr, unpkg, cdnjs, or other runtime CDN/static asset references.
+
+Required local font files:
+
+```text
+vendor/fonts/Jost-wght.ttf
+vendor/fonts/open-sans/OpenSans-VariableFont_wdth,wght.woff2
+vendor/fonts/open-sans/OFL.txt
+```
+
+The Open Sans WOFF2 file and Jost TTF file must be present before publishing. They may be omitted from AI-generated transfer zips and then copied back into the paths above.
 
 ## Notes
 
-- The app currently loads MarinOS brand assets from `https://marincountygov.github.io/marin-os/` so the bundle runs as-is.
+- Files selected for ZIP creation are processed locally in the browser and are not uploaded by this page.
 - `assets/vendor/zip.js/zip-native.min.js` is local to this bundle. No zip.js CDN dependency is required.
-- Change `data-updates-repo="marin-os"` in the Updates section to this app's repository slug after it is added to MarinOS.
+- The Updates page links to GitHub release history instead of fetching commit data automatically.
 
 ## Query-driven file naming
 

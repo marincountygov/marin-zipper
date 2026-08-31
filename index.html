@@ -6,8 +6,8 @@
     <title>Marin Zipper | County of Marin</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23000'/%3E%3Cg fill='none' stroke='%23e5b53b' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='12' height='12' rx='2'/%3E%3Crect x='27' y='9' width='12' height='12' rx='2'/%3E%3Crect x='9' y='27' width='12' height='12' rx='2'/%3E%3Crect x='27' y='27' width='12' height='12' rx='2'/%3E%3C/g%3E%3C/svg%3E">
     <meta name="description" content="Create password-protected AES-encrypted ZIP files in the browser.">
-    <link rel="stylesheet" href="https://marincountygov.github.io/marin-os/vendor/pico.min.css">
-    <link rel="stylesheet" href="https://marincountygov.github.io/marin-os/shared/app-brand.css">
+    <link rel="stylesheet" href="vendor/pico.min.css">
+    <link rel="stylesheet" href="shared/app-brand.css">
     <link rel="stylesheet" href="assets/app.css">
   </head>
   <body>
@@ -182,7 +182,7 @@
 
       <section id="about" class="app-card" data-tab-section="about" hidden>
         <h2>About</h2>
-        <p>Marin Zipper is a browser-only prototype for creating password-protected ZIP files with ZIP AES encryption. It does not send the selected files to a server.</p>
+        <p>Marin Zipper is a browser-only tool for creating password-protected ZIP files with ZIP AES encryption. It does not send the selected files to a server.</p>
         <h3>File name links</h3>
         <p>Some links to Marin Zipper can fill in parts of the ZIP file name for you. This is useful when another system sends you here with file name details already included in the link.</p>
         <p>A file name link can use these fields:</p>
@@ -200,11 +200,10 @@
         <p>Marin Zipper creates AES-encrypted ZIP files. Windows File Explorer cannot reliably extract encrypted archives. Use 7-Zip, WinRAR, WinZip, PeaZip, or another AES ZIP-compatible extractor to open files created with this app.</p>
       </section>
 
-      <section id="updates" class="app-card" data-tab-section="updates" data-updates-repo="marin-os" data-app-name="Marin Zipper" hidden>
+      <section id="updates" class="app-card" data-tab-section="updates" data-updates-repo="marin-zipper" data-app-name="Marin Zipper" hidden>
         <h2>Updates</h2>
-        <p class="app-help-text">Change <code>data-updates-repo</code> to this app's repository slug after adding it to MarinOS.</p>
-        <p data-updates-status class="app-help-text" role="status" aria-live="polite" aria-atomic="true">Loading recent commits&hellip;</p>
-        <div data-updates-list></div>
+        <p data-updates-status class="app-help-text" role="status" aria-live="polite" aria-atomic="true">Marin Zipper does not load update data automatically.</p>
+        <p><a href="https://github.com/marincountygov/marin-zipper/commits/main" target="_blank" rel="noreferrer">View release history on GitHub</a></p>
       </section>
     </main>
 
@@ -216,7 +215,7 @@
     </noscript>
 
     <script src="assets/vendor/zip.js/zip-native.min.js"></script>
-    <script src="https://marincountygov.github.io/marin-os/shared/app-shell.js"></script>
+    <script src="shared/app-shell.js"></script>
     <script src="assets/app.js"></script>
   </body>
 </html>
