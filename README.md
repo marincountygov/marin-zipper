@@ -10,7 +10,7 @@ Browser-only MarinOS app for creating password-protected AES-encrypted ZIP files
 - `assets/vendor/zip.js/zip-native.min.js` - Official vendored zip.js native browser build.
 - `vendor/pico.min.css` - Local Pico CSS copy supplied through MarinOS UI assets.
 - `shared/app-brand.css` - Local MarinOS brand CSS. It uses Jost for headings/display text and Open Sans for body/user-interface text.
-- `shared/app-shell.js` - Local MarinOS app shell behavior. This app-specific copy does not fetch the MarinOS catalog or GitHub updates automatically.
+- `shared/app-shell.js` - Local MarinOS app shell behavior. The MarinOS banner refreshes from the published MarinOS catalog, while this app keeps its existing local update-page behavior.
 - `vendor/fonts/open-sans/OFL.txt` - Open Sans license file.
 
 ## Local-first runtime assets
