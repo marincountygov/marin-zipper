@@ -261,6 +261,8 @@
             ? `Must be at least ${PASSWORD_MIN_LENGTH} characters. Passwords are not stored by this page.`
             : "Passwords must match.";
           elements.passwordHelp.classList.toggle("app-error", !passwordsMatch);
+          elements.password.setAttribute("aria-invalid", String(!passwordLongEnough && Boolean(password)));
+          elements.passwordConfirm.setAttribute("aria-invalid", String(!passwordsMatch && Boolean(confirmation)));
           elements.createZipButton.disabled = !canCreate;
           elements.clearFilesButton.disabled = !hasFiles || state.isBusy;
           elements.chooseFilesButton.disabled = state.isBusy;
