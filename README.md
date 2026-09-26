@@ -2,6 +2,10 @@
 
 Browser-only MarinOS app for creating password-protected AES-encrypted ZIP files with the official vendored zip.js native browser build.
 
+## Security
+
+Marin Zipper follows the [MarinOS security standard](https://github.com/marincountygov/marin-digital-standards/blob/main/security/standard.md). See [`SECURITY.md`](SECURITY.md) to report an issue, or the app's own `#security` section for a plain-language summary.
+
 ## Files
 
 - `index.html` - MarinOS shell, form, drag-and-drop area, About tab, and Updates tab.
