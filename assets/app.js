@@ -261,8 +261,28 @@
             ? `Must be at least ${PASSWORD_MIN_LENGTH} characters. Passwords are not stored by this page.`
             : "Passwords must match.";
           elements.passwordHelp.classList.toggle("app-error", !passwordsMatch);
-          elements.password.setAttribute("aria-invalid", String(!passwordLongEnough && Boolean(password)));
-          elements.passwordConfirm.setAttribute("aria-invalid", String(!passwordsMatch && Boolean(confirmation)));
+          
+          const isCompleteMatch = passwordLongEnough && passwordsMatch && Boolean(password) && Boolean(confirmation);
+
+          if (!password) {
+            elements.password.removeAttribute("aria-invalid");
+          } else if (!passwordLongEnough) {
+            elements.password.setAttribute("aria-invalid", "true");
+          } else if (isCompleteMatch) {
+            elements.password.setAttribute("aria-invalid", "false");
+          } else {
+            elements.password.removeAttribute("aria-invalid");
+          }
+
+          if (!confirmation) {
+            elements.passwordConfirm.removeAttribute("aria-invalid");
+          } else if (!passwordsMatch) {
+            elements.passwordConfirm.setAttribute("aria-invalid", "true");
+          } else if (isCompleteMatch) {
+            elements.passwordConfirm.setAttribute("aria-invalid", "false");
+          } else {
+            elements.passwordConfirm.removeAttribute("aria-invalid");
+          }
           elements.createZipButton.disabled = !canCreate;
           elements.clearFilesButton.disabled = !hasFiles || state.isBusy;
           elements.chooseFilesButton.disabled = state.isBusy;
