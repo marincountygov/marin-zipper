@@ -44,8 +44,8 @@
                   <button type="button" id="choose-folder-button" class="secondary">Choose folder</button>
                   <button type="button" id="clear-files-button" class="secondary" disabled>Clear files</button>
                 </div>
-                <input id="file-input" class="visually-hidden" type="file" multiple>
-                <input id="folder-input" class="visually-hidden" type="file" multiple webkitdirectory>
+                <input id="file-input" class="visually-hidden" type="file" multiple tabindex="-1" aria-label="Choose files to add">
+                <input id="folder-input" class="visually-hidden" type="file" multiple webkitdirectory tabindex="-1" aria-label="Choose a folder to add">
                 <div class="zip-summary" aria-live="polite">
                   <span class="app-badge" id="selected-count">0 files</span>
                   <span class="app-badge" id="selected-size">0 bytes</span>
@@ -58,7 +58,7 @@
             </div>
 
             <div id="empty-files" class="app-empty zip-empty">No files selected.</div>
-            <div id="file-list" class="zip-file-list" aria-label="Selected files"></div>
+            <div id="file-list" class="zip-file-list" role="list" aria-label="Selected files"></div>
           </div>
 
           <form id="zip-form" class="app-card" novalidate>
