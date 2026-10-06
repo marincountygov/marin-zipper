@@ -312,6 +312,7 @@
           for (const item of state.items) {
             const row = document.createElement("div");
             row.className = "zip-file-row";
+            row.setAttribute("role", "listitem");
             row.dataset.fileId = String(item.id);
 
             const name = document.createElement("div");
