@@ -87,11 +87,6 @@
         white-space: nowrap;
       }
 
-      .zip-remove-file {
-        min-height: 36px;
-        padding: 0.25rem 0.55rem;
-      }
-
       .zip-progress-wrap {
         margin-top: 1rem;
       }
