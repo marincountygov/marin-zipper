@@ -325,8 +325,9 @@
 
             const remove = document.createElement("button");
             remove.type = "button";
-            remove.className = "secondary zip-remove-file";
-            remove.textContent = "Remove";
+            remove.className = "action-button zip-remove-file";
+            remove.dataset.icon = "x";
+            remove.title = "Remove";
             remove.disabled = state.isBusy;
             remove.setAttribute("aria-label", `Remove ${item.path}`);
             remove.addEventListener("click", () => removeFile(item.id));
@@ -591,7 +592,9 @@
           const shouldShow = elements.password.type === "password";
           elements.password.type = shouldShow ? "text" : "password";
           elements.passwordConfirm.type = shouldShow ? "text" : "password";
-          elements.togglePasswordButton.textContent = shouldShow ? "Hide passwords" : "Show passwords";
+          const toggleLabel = shouldShow ? "Hide passwords" : "Show passwords";
+          elements.togglePasswordButton.setAttribute("aria-label", toggleLabel);
+          elements.togglePasswordButton.title = toggleLabel;
           elements.togglePasswordButton.setAttribute("aria-pressed", String(shouldShow));
         });
 

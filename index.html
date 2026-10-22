@@ -40,9 +40,9 @@
                 <h2 id="start-heading">Drop files anywhere on this page</h2>
                 <p class="app-help-text">You can also choose files using the button below. Files remain only on your device.<br>Do not include sensitive information in file names.</p>
                 <div class="zip-drop-actions">
-                  <button type="button" id="choose-files-button">Choose files</button>
-                  <button type="button" id="choose-folder-button" class="secondary">Choose folder</button>
-                  <button type="button" id="clear-files-button" class="secondary" disabled>Clear files</button>
+                  <button type="button" id="choose-files-button" class="action-button" data-icon="upload">Choose files</button>
+                  <button type="button" id="choose-folder-button" class="action-button" data-icon="folder-open">Choose folder</button>
+                  <button type="button" id="clear-files-button" class="action-button" data-icon="x" aria-label="Clear files" title="Clear files" disabled></button>
                 </div>
                 <input id="file-input" class="visually-hidden" type="file" multiple tabindex="-1" aria-label="Choose files to add">
                 <input id="folder-input" class="visually-hidden" type="file" multiple webkitdirectory tabindex="-1" aria-label="Choose a folder to add">
@@ -104,8 +104,8 @@
             </div>
 
             <div class="zip-password-actions app-field">
-              <button type="button" id="generate-password-button" class="secondary">Generate password</button>
-              <button type="button" id="toggle-password-button" class="secondary" aria-pressed="false">Show passwords</button>
+              <button type="button" id="generate-password-button" class="action-button">Generate password</button>
+              <button type="button" id="toggle-password-button" class="action-button" data-icon="eye" aria-pressed="false" aria-label="Show passwords" title="Show passwords"></button>
             </div>
 
             <div class="app-form-grid zip-advanced-options" hidden aria-hidden="true">
@@ -131,7 +131,7 @@
 
             <div class="zip-actions">
               <button type="submit" id="create-zip-button" disabled>Create encrypted ZIP</button>
-              <button type="button" id="cancel-button" class="secondary" hidden>Cancel</button>
+              <button type="button" id="cancel-button" class="action-button" hidden>Cancel</button>
             </div>
 
             <div id="progress-wrap" class="zip-progress-wrap" hidden>
@@ -139,7 +139,7 @@
               <div id="progress-text" class="zip-progress-text">Preparing...</div>
             </div>
 
-            <a id="download-link" class="zip-download" role="button" href="#" download hidden>Download encrypted ZIP</a>
+            <a id="download-link" class="action-button zip-download" role="button" href="#" download data-icon="download" hidden>Download encrypted ZIP</a>
           </form>
         </div>
       </section>
