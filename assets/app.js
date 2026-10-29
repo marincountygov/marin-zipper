@@ -533,6 +533,7 @@
             const blob = await writer.close();
             writer = null;
 
+            // marin-shared-helpers: allow (the page keeps a visible download link, so it needs the object URL itself)
             state.downloadUrl = URL.createObjectURL(blob);
             elements.downloadLink.href = state.downloadUrl;
             elements.downloadLink.download = zipFileName;

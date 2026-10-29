@@ -44,7 +44,9 @@
                   <button type="button" id="choose-folder-button" class="action-button" data-icon="folder-open">Choose folder</button>
                   <button type="button" id="clear-files-button" class="action-button" data-icon="x" aria-label="Clear files" title="Clear files" disabled></button>
                 </div>
+                <!-- marin-shared-helpers: allow (Zipper adds dropped folders by walking their entries, which marinUpload does not do) -->
                 <input id="file-input" class="visually-hidden" type="file" multiple tabindex="-1" aria-label="Choose files to add">
+                <!-- marin-shared-helpers: allow (the folder picker is part of the same folder-adding flow) -->
                 <input id="folder-input" class="visually-hidden" type="file" multiple webkitdirectory tabindex="-1" aria-label="Choose a folder to add">
                 <div class="zip-summary" aria-live="polite">
                   <span class="app-badge" id="selected-count">0 files</span>
