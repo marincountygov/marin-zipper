@@ -43,9 +43,10 @@ if [[ -n "$BROWSER_MODE" ]]; then
     printf 'ERROR: The paired marin-unzipper repository is required for the encrypted ZIP browser test.\n' >&2
     exit 1
   fi
+  # An empty array is "unbound" under set -u in bash 3.2 (the bash macOS ships), so it is expanded only when it has items.
   EXTRA_ARGS=()
   if [[ "$BROWSER_MODE" == "in-memory" ]]; then EXTRA_ARGS+=(--in-memory); fi
-  python3 "$TEST_RUNNER" "${EXTRA_ARGS[@]}" \
+  python3 "$TEST_RUNNER" ${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"} \
     --zipper-dir "$ROOT_DIR" \
     --unzipper-dir "$ROOT_DIR/../marin-unzipper"
 else
